@@ -71,7 +71,7 @@ class bydbattControll extends utils.Adapter {
         for (var a = 1; a < _arrayNum+1; a++) {
             for (var b = 1; b < _batteryNum+1; b++) {
                 const htmlHome = await this.getDatenHome(this.config.ip);
-                const resHome  = await this.updateDeviceHome(htmlHome); 
+                const resHome  = await this.updateDeviceHome(htmlHome);
              
                 const htmlData = await this.getDaten(this.config.ip, a, b);
                 const resData  = await this.updateDevice(htmlData, a, b);
@@ -89,27 +89,36 @@ class bydbattControll extends utils.Adapter {
         const statusURLSet = `http://user:user@${ip}/goform/SetRunData`;
     
         let res = await axios.post(statusURLSet, { data: `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`});
-    
-        const htmlData = res.data;
 
-        this.log.debug('daten ' + htmlData);
-        return htmlData;
+        this.log.debug('daten ' + res.data);
+        return res.data;
     }
 
     async getDatenHome(ip) {
         const statusURLHome = `http://user:user@${ip}/asp/Home.asp`;
      
         let res = await axios.get(statusURLHome);
-    
-        const htmlData = res.data;
-        this.log.debug('datenHome   ' + htmlData);
-     
-        return htmlData;
+
+        this.log.debug('datenHome   ' + res.data);
+        return res.data;
     }
  
     async updateDeviceHome(htmlHome) {
-      
- 
+        let htmlText2 = (htmlHome || '').toString().replace(/\r\n|[\r\n]/g, ' ');
+            htmlText2 = (htmlText2 || '').toString().replace(/\t|[\t]/g, ' ');
+
+        const g2 = /value=\w*>/g;   // suche status
+
+        var contents = htmlText2.match(g2);
+        contents = contents.filter(function(el){
+            return el;
+        })
+
+        let wert = contents[0];
+            wert = wert.replace("value=", "").replace(">", "");
+
+        this.setState('RunStatus', wert, true);
+
     }
     async updateDevice(htmlData, arrNum, battNum) {
         const arrNumNow = arrNum;
@@ -121,7 +130,7 @@ class bydbattControll extends utils.Adapter {
             htmlText2 = (htmlText2 || '').toString().replace(/\t|[\t]/g, ' ');
 
         const g1 = /<td(>|[^>]+>)((?:.(?!<\/td>))*.?)<\/td>/g;                       // suche alle td
-        const g2 = /[a-zA-Z ]+:|[a-zA-Z]+(\[(?:\[??[^\[]*?\])):|value=\d*\.?\d*/g;   // suche alle bezeichnungnen und values
+        const g2 = /[\w]+:|[\w]+(\[(?:\[??[^\[]*?\])):|value=-?\d*\.?\d*/g;   // suche alle bezeichnungnen und values
         const g3 = /\w*\d*-\w*\d*/g; // suche serialnummer
 
         try {
@@ -202,7 +211,11 @@ class bydbattControll extends utils.Adapter {
                                         }
                                         this.setState(id, wert, true);
                                         this.log.debug(id + ' ' + wert);
-                                        contents.splice(idx, 2);
+
+                                        wert = contents[idx + 1];
+                                        if (wert.indexOf("e=") > 0) {    // suche nach value und wenn gefunden dann lösche die punkte
+                                            contents.splice(idx, 2);
+                                        }
                                         break;
                                     }
                                 }
