@@ -18,9 +18,6 @@ let _arrayNum = 0;
 let requestTimeout = null;
 let interval = 0;
 
-
-const htmlData_test = "<html>\r\n<head>\r\n<title>RunData</title>\r\n<meta http-equiv=Content-Type content=text/html; charset=utf-8 />\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\">\r\n<link href=\"../default.css\" rel=\"stylesheet\" type=\"text/css\">\r\n<script language=\"javascript\">\r\nfunction submitForm(){ \r\n\tvar form = document.getElementById(\"RunData\");\r\n\tform.submit();\r\n}\r\n</script>\r\n</head>\r\n<body>\r\n<center>\r\n<br>\r\n<h3>Run Data</h3>\r\n</center>\r\n<hr>\r\n<center>\r\n<br>\r\n<form method=\"post\" name=\"RunData\" id=\"RunData\" action=\"/goform/SetRunData\">\r\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"common_table\">\r\n<tr>\r\n<td colspan=\"2\" width=\"20%\"><h3>Array Num:</h3></td>\n<td width=\"60%\"><select name=\"ArrayNum\" onChange=\"submitForm();\">\n<option value=\"1\" id=\"1\" selected=\"selected\">1</option>\n</select></td></tr>\n<tr>\n<td width=\"5%\"></td>\n<td width=\"15%\">ArrayVoltage:</td>\n<td width=\"60%\"><input readonly=\"readonly\" type=\"text\" value=424.282>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>PackVoltage:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=424.260>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>Current:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=5.398>&nbsp;&nbsp;A</td>\n</tr>\n<tr>\n<td></td>\n<td>SOC:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=24.200%></td>\n</tr>\n<tr>\n<td></td>\n<tr>\n<td></td>\n<td>SysTemp:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=24.700>&nbsp;&nbsp;&#8451</td>\n</tr>\n<tr>\n<td></td>\n<td>MaxCellVol:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.319>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>MinCellVol:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.311>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>MaxCellTemp:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=22.300>&nbsp;&nbsp;&#8451</td>\n</tr>\n<tr>\n<td></td>\n<td>MinCellTemp:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=19.600>&nbsp;&nbsp;&#8451</td>\n</tr>\n<tr>\n<td></td>\n<td>MaxVolPos:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=8></td>\n</tr>\n<tr>\n<td></td>\n<td>MinVolPos:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=4></td>\n</tr>\n<tr>\n<td></td>\n<td>MaxTempPos:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=4></td>\n</tr>\n<tr>\n<td></td>\n<td>MinTempPos:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=1></td>\n</tr>\n<tr>\n<td></td>\n<td>Power:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=2.248>&nbsp;&nbsp;KW</td>\n</tr>\n</table><br>\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"common_table\">\n<tr>\n<td colspan=\"2\" width=\"40%\"><h3>Series Battery Num:</h3></td>\n<td width=\"40%\"><select name=\"SeriesBatteryNum\" onChange=\"submitForm();\">\n<option value=\"1\" id=\"1\" selected=\"selected\">1</option>\n<option value=\"2\" id=\"2\">2</option>\n<option value=\"3\" id=\"3\">3</option>\n<option value=\"4\" id=\"4\">4</option>\n<option value=\"5\" id=\"5\">5</option>\n<option value=\"6\" id=\"6\">6</option>\n<option value=\"7\" id=\"7\">7</option>\n<option value=\"8\" id=\"8\">8</option>\n</select></td>\n</tr><tr>\n<td width=\"5%\"></td>\n<td width=\"15%\">SerialNumber:</td>\n<td width=\"60%\"><input readonly=\"readonly\" type=\"text\" value=1C351909-00616 2019/08/29 14:23:00:2>&nbsp;&nbsp;</td>\n</tr><tr>\n<td width=\"5%\"></td>\n<td width=\"15%\">BattVol:</td>\n<td width=\"60%\"><input readonly=\"readonly\" type=\"text\" value=53.065>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVolDiff:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=0.004>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[1]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.317>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[2]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.317>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[3]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.317>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[4]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.317>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[5]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.316>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[6]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.317>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[7]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.316>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[8]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.317>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[9]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.318>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[10]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.314>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[11]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.316>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[12]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.317>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[13]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.316>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[14]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.316>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[15]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.317>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVol[16]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.317>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVolMax:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.318>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellVolMin:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=3.314>&nbsp;&nbsp;V</td>\n</tr>\n<tr>\n<td></td>\n<td>CellTemp[1]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=20.000>&nbsp;&nbsp;&#8451</td>\n</tr>\n<tr>\n<td></td>\n<td>CellTemp[2]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=19.800>&nbsp;&nbsp;&#8451</td>\n</tr>\n<tr>\n<td></td>\n<td>CellTemp[3]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=19.700>&nbsp;&nbsp;&#8451</td>\n</tr>\n<tr>\n<td></td>\n<td>CellTemp[4]:</td>\n<td><input readonly=\"readonly\" type=\"text\" value=19.600>&nbsp;&nbsp;&#8451</td>\n</tr>\n<tr>\n<td></td>\n<td>BalanceCtrl:</td>\n<td>1:<input type=\"checkbox\" onclick=\"return false;\">2:<input type=\"checkbox\" onclick=\"return false;\">3:<input type=\"checkbox\" onclick=\"return false;\">4:<input type=\"checkbox\" onclick=\"return false;\">5:<input type=\"checkbox\" onclick=\"return false;\">6:<input type=\"checkbox\" onclick=\"return false;\">7:<input type=\"checkbox\" onclick=\"return false;\">8:<input type=\"checkbox\" onclick=\"return false;\">9:<input type=\"checkbox\" onclick=\"return false;\">10:<input type=\"checkbox\" onclick=\"return false;\">11:<input type=\"checkbox\" onclick=\"return false;\">12:<input type=\"checkbox\" onclick=\"return false;\">13:<input type=\"checkbox\" onclick=\"return false;\">14:<input type=\"checkbox\" onclick=\"return false;\">15:<input type=\"checkbox\" onclick=\"return false;\">16:<input type=\"checkbox\" onclick=\"return false;\">\r\n</td>\r\n</tr>\r\n</table>\r\n</form>\r\n</center>\r\n</body>\r\n</html>\r\n";
-
 class bydbattControll extends utils.Adapter {
 
     /**
@@ -71,11 +68,8 @@ class bydbattControll extends utils.Adapter {
 
         for (var a = 0; a < _arrayNum; a++) {
             for (var b = 0; b < _batteryNum; b++) {
-
-            //    const htmlData = await this.getDaten(this.config.ip, a, b);
-                const res = await this.updateDevice(htmlData_test, a, b);
-
-
+                const htmlData = await this.getDaten(this.config.ip, a, b);
+                const res = await this.updateDevice(htmlData, a, b);
             }
         }
 
@@ -88,10 +82,20 @@ class bydbattControll extends utils.Adapter {
 
     async getDaten(ip, arrNum, battNum) {
         const statusURL = `http://user:user@${ip}/asp/RunData.asp`;
-        const res = await axios.get(statusURL);
+        const params = {
+            ArrayNum: 1,
+            SeriesBatteryNum: 1
+        }
+
+        let res = await axios.post(statusURL, params);
+   //     const res = await axios.get(statusURL);
         const htmlData = res.data;
+
+        this.log.debug('daten ' + htmlData);
         return htmlData;
     }
+
+
 
     async updateDevice(htmlData, arrNum, battNum) {
         const arrNumNow = arrNum +1;
@@ -117,6 +121,8 @@ class bydbattControll extends utils.Adapter {
             })
 
             const balanceCtrl = contents[contents.length-1];
+            let balanceArray = balanceCtrl.split(';">');
+
             const serialNumValue = contents[contents.indexOf(serialNumPosi)+1].match(g3).toString();
 
             let treffer = contents.toString();
@@ -130,6 +136,10 @@ class bydbattControll extends utils.Adapter {
 
             if (stateArray && stateArray.rows.length > 0) {
                 for (let i = 0; i < stateArray.rows.length; i++) {
+                    if (contents.length < 1) {    // wenn nix mehgr zur vergleich dann raus hier
+                        break;
+                    }
+
                     if (stateArray.rows[i].id) {
                         let id = stateArray.rows[i].id;
 
@@ -137,16 +147,16 @@ class bydbattControll extends utils.Adapter {
 
 
                         if (id.indexOf("lastInfoUpdate") > 0) {
-                            this.setState(obje._id, Date.now(), true);
+                            this.setState(id, Date.now(), true);
                         }
 
                         var idx = 0;
 
-                        for (; idx < contents.length+1;) {
+                        for (; idx < contents.length;) {
                             let idCon = contents[idx];
 
                             if (idCon.indexOf(" ") > 0) {
-                                contents.shift();
+                                contents.splice(idx, 1);
                                 continue;
                             }
 
@@ -154,16 +164,33 @@ class bydbattControll extends utils.Adapter {
                                 idCon = idCon.replace(":", "").replace("[", "").replace("]", "");
 
                                 if (id.indexOf(idCon) > 0) {
-                                    let wert = contents[idx + 1];
-                                    if (idCon == "SerialNumber") {
-                                        wert = serialNumValue;   // serialnummer sonderlocke
+
+                                    if (idCon == "BalanceCtrl") {
+                                        let idKurz = id.substring(0, id.length - 2);
+                                        for (let i = 0; i < 16; i++) {
+                                            let wert = false;
+                                            if (balanceArray[i].indexOf("true") > 0) {
+                                                wert = true;
+                                            }
+                                            let idIdx = i +1;
+
+                                            this.setState(idKurz + '.' + idIdx, wert, true);
+                                            this.log.debug(idKurz + '.' + idIdx, wert);
+                                        }
+                                        contents.splice(idx, 1);
+                                        break;
                                     } else {
+                                        let wert = contents[idx + 1];
                                         wert = wert.replace("value=", "");
+
+                                        if (idCon == "SerialNumber") {
+                                            wert = serialNumValue;   // serialnummer sonderlocke
+                                        }
+                                        this.setState(id, wert, true);
+                                        this.log.debug(id + ' ' + wert);
+                                        contents.splice(idx, 2);
+                                        break;
                                     }
-                                    this.setState(id, wert, true);
-                                    contents.shift();
-                                    contents.shift();
-                                    break;
                                 }
                             }
                             idx++;
@@ -282,6 +309,19 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
+        this.extendObjectAsync(`ArrayNum.${a}.MinCellVol`, {
+            type: 'state',
+            common: {
+                name: `MinCellVol`,
+                type: 'number',
+                read: true,
+                write: false,
+                def: 0,
+                role: 'info',
+                unit: 'V'
+            },
+            native: {},
+        });
         this.extendObjectAsync(`ArrayNum.${a}.MaxCellTemp`, {
             type: 'state',
             common: {
@@ -372,11 +412,34 @@ class bydbattControll extends utils.Adapter {
 
         for (var b = 0; b < _batteryNum; b++) {
             await this.batteryNum(a, b+1);
-
+            await this.batteryBalance(a, b+1);
         }
-
-
     }
+
+    async batteryBalance(a, b) {
+        this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.BalanceCtrl`, {
+            type: 'channel',
+            common: {
+                name: `BalanceCtrl`,
+            },
+            native: {},
+        });
+
+        for (var ba = 1; ba < 17; ba++) {
+            this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.BalanceCtrl.${ba}`, {
+                type: 'state',
+                common: {
+                    name: `${ba}`,
+                    type: 'boolean',
+                    read: true,
+                    write: false,
+                    role: 'info'
+                },
+                native: {},
+            });
+        }
+    }
+
     async batteryNum(a, b) {
         this.extendObjectAsync(`ArrayNum.${a}.BattNum`, {
             type: 'channel',
@@ -433,6 +496,21 @@ class bydbattControll extends utils.Adapter {
                 native: {},
             });
         }
+
+
+        this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.CellVolDiff`, {
+            type: 'state',
+            common: {
+                name: `CellVolDiff`,
+                type: 'number',
+                read: true,
+                write: false,
+                def: 0,
+                role: 'info',
+                unit: 'V'
+            },
+            native: {},
+        });
         this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.CellVolMax`, {
             type: 'state',
             common: {
@@ -491,21 +569,21 @@ class bydbattControll extends utils.Adapter {
     async initialization() {
         try {
             if (this.config.ip === undefined ) {
-                this.log.debug(`initialization undefined no ip`);
+                this.log.error(`initialization undefined no ip`);
                 callback();
             }
 
             if (this.config.arraynum !== undefined ) {
                 _arrayNum = Number(this.config.arraynum);
             } else {
-                this.log.debug(`initialization undefined arraynum undefined`);
+                this.log.error(`initialization undefined arraynum undefined`);
                 callback();
             }
 
             if (this.config.batterynum !== undefined ) {
                 _batteryNum = Number(this.config.batterynum);
             } else {
-                this.log.debug(`initialization undefined batterynum undefined`);
+                this.log.error(`initialization undefined batterynum undefined`);
                 callback();
             }
             interval = parseInt(this.config.interval * 1000, 10);
@@ -515,6 +593,7 @@ class bydbattControll extends utils.Adapter {
 
         } catch (error) {
             this.log.error('other problem');
+
         }
     }
 
