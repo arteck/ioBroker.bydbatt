@@ -72,6 +72,8 @@ class bydbattControll extends utils.Adapter {
             for (var b = 1; b < _batteryNum+1; b++) {
                 const htmlData = await this.getDaten(this.config.ip, a, b);
                 const res = await this.updateDevice(htmlData, a, b);
+                const htmlHome = await this.getDatenHome(this.config.ip);
+                const res = await this.updateDeviceHome(htmlHome);
             }
         }
 
@@ -90,7 +92,10 @@ class bydbattControll extends utils.Adapter {
         bodyFormData.append('ArrayNum', arrNum);
         bodyFormData.append('SeriesBatteryNum', battNum);
 
-        let res = await axios.post(statusURLSet, bodyFormData);
+        let res = await axios.get(statusURL);
+        
+    
+        res = await axios.post(statusURLSet, bodyFormData);
         res = await axios.get(statusURL);
 
         const htmlData = res.data;
@@ -99,8 +104,21 @@ class bydbattControll extends utils.Adapter {
         return htmlData;
     }
 
-
-
+    async getDatenHome(ip) {
+        const statusURLHome = `http://user:user@${ip}/asp/Home.asp`;
+     
+        let res = await axios.get(statusURL);
+    
+        const htmlData = res.data;
+        this.log.debug('datenHome   ' + htmlData);
+     
+        return htmlData;
+    }
+ 
+    async updateDeviceHome(htmlHome) {
+      
+ 
+    }
     async updateDevice(htmlData, arrNum, battNum) {
         const arrNumNow = arrNum;
         const battNumNow = battNum;
@@ -223,6 +241,17 @@ class bydbattControll extends utils.Adapter {
     }
 
     async creArrayNum(a) {
+        this.extendObjectAsync(`RunStatus`, {
+            type: 'state',
+            common: {
+                name: `RunStatus`,
+                type: 'string',
+                read: true,
+                write: false,
+                role: 'info'
+            },
+            native: {},
+        });
         this.extendObjectAsync(`ArrayNum.${a}`, {
             type: 'channel',
             common: {
