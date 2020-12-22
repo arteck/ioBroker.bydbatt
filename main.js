@@ -87,9 +87,9 @@ class bydbattControll extends utils.Adapter {
 
    async getDaten(ip, arrNum, battNum) {
         const statusURLSet = `http://user:user@${ip}/goform/SetRunData`;
-
-        let res = await axios.post(statusURLSet, `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`);
-
+    
+        let res = await axios.post(statusURLSet, { data: `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`});
+    
         const htmlData = res.data;
 
         this.log.debug('daten ' + htmlData);
