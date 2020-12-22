@@ -16,7 +16,8 @@
     "url": "https://github.com/arteck/ioBroker.bydbatt"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^2.4.0"
+    "@iobroker/adapter-core": "^2.4.0",
+     "axios-digest": "^0.2.0"
   },
   "devDependencies": {
     "@iobroker/testing": "^2.2.0",
