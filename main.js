@@ -12,6 +12,8 @@
  
 const utils = require('@iobroker/adapter-core');
 const axios = require('axios');
+var Formdata = require('form-data');
+
 
 let _batteryNum = 0;
 let _arrayNum = 0;
@@ -79,24 +81,24 @@ class bydbattControll extends utils.Adapter {
         
     }
 
-
-    async getDaten(ip, arrNum, battNum) {
+   async getDaten(ip, arrNum, battNum) {
         const statusURL = `http://user:user@${ip}/asp/RunData.asp`;
-        const statusURLSet = `http://${ip}/asp/SetRunData.asp`;
+        const statusURLSet = `http://user:user@${ip}/goform/SetRunData`;
 
         var bodyFormData = new Formdata();
 
-        bodyFormData.append('ArrayNum', `${arrNum}`);
-        bodyFormData.append('SeriesBatteryNum', `${battNum}`);
+        bodyFormData.append('ArrayNum', arrNum);
+        bodyFormData.append('SeriesBatteryNum', battNum);
 
-
-        res = await axios.post(statusURLSet, bodyFormData);
+        let res = await axios.post(statusURLSet, bodyFormData);
+        res = await axios.get(statusURL);
 
         const htmlData = res.data;
 
         this.log.debug('daten ' + htmlData);
         return htmlData;
     }
+
 
 
     async updateDevice(htmlData, arrNum, battNum) {
