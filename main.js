@@ -66,8 +66,8 @@ class bydbattControll extends utils.Adapter {
    
         if (requestTimeout) clearTimeout(requestTimeout);
 
-        for (var a = 0; a < _arrayNum; a++) {
-            for (var b = 0; b < _batteryNum; b++) {
+        for (var a = 1; a < _arrayNum+1; a++) {
+            for (var b = 1; b < _batteryNum+1; b++) {
                 const htmlData = await this.getDaten(this.config.ip, a, b);
                 const res = await this.updateDevice(htmlData, a, b);
             }
@@ -79,12 +79,11 @@ class bydbattControll extends utils.Adapter {
         
     }
 
-
     async getDaten(ip, arrNum, battNum) {
         const statusURL = `http://user:user@${ip}/asp/RunData.asp`;
         const params = {
-            ArrayNum: 1,
-            SeriesBatteryNum: 1
+            ArrayNum: `${arrNum}`,
+            SeriesBatteryNum: `${battNum}`
         }
 
         let res = await axios.post(statusURL, params);
@@ -96,10 +95,9 @@ class bydbattControll extends utils.Adapter {
     }
 
 
-
     async updateDevice(htmlData, arrNum, battNum) {
-        const arrNumNow = arrNum +1;
-        const battNumNow = battNum +1;
+        const arrNumNow = arrNum;
+        const battNumNow = battNum;
         let serialNumPosi = "";
 
 
