@@ -99,7 +99,7 @@ class bydbattControll extends utils.Adapter {
     async getDatenHome(ip) {
         const statusURLHome = `http://user:user@${ip}/asp/Home.asp`;
      
-        let res = await axios.get(statusURL);
+        let res = await axios.get(statusURLHome);
     
         const htmlData = res.data;
         this.log.debug('datenHome   ' + htmlData);
