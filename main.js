@@ -70,10 +70,12 @@ class bydbattControll extends utils.Adapter {
 
         for (var a = 1; a < _arrayNum+1; a++) {
             for (var b = 1; b < _batteryNum+1; b++) {
-                const htmlData = await this.getDaten(this.config.ip, a, b);
-                const res = await this.updateDevice(htmlData, a, b);
                 const htmlHome = await this.getDatenHome(this.config.ip);
-                const res = await this.updateDeviceHome(htmlHome);
+                const resHome  = await this.updateDeviceHome(htmlHome); 
+             
+                const htmlData = await this.getDaten(this.config.ip, a, b);
+                const resData  = await this.updateDevice(htmlData, a, b);
+                
             }
         }
 
