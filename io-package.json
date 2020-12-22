@@ -1,0 +1,69 @@
+{
+  "common": {
+    "name": "bydbatt",
+    "version": "0.0.1",
+    "news": {
+      "0.0.1": {
+        "en": "initial",
+        "de": "initial"
+      }
+    },
+    "title": "bydbatt",
+    "titleLang": {
+      "en": "bydbatt",
+      "de": "bydbatt",
+      "ru": "bydbatt",
+      "pt": "bydbatt",
+      "nl": "bydbatt",
+      "fr": "bydbatt",
+      "it": "bydbatt",
+      "es": "bydbatt",
+      "pl": "bydbatt"
+    },
+    "desc": {
+      "en": "connects byd Battery array to ioBroker",
+      "de": "verbindet byd Battery Array mit ioBroker",
+      "ru": "подключает массив byd Battery к ioBroker",
+      "pt": "conecta a matriz de bateria byd ao ioBroker",
+      "nl": "verbindt byd Battery-array met ioBroker",
+      "fr": "connecte le tableau de batteries byd à ioBroker",
+      "it": "collega l'array di batterie byd a ioBroker",
+      "es": "conecta el conjunto de baterías byd a ioBroker",
+      "pl": "łączy byd Battery array z ioBroker",
+      "zh-cn": "将BYD电池阵列连接到ioBroker"
+    },
+    "authors": [
+      "arteck <arteck@outlook.com>"
+    ],
+    "keywords": [
+      "ioBroker",
+      "byd",
+      "Battery",
+      "home automation"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "byd-batterybox.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/arteck/ioBroker.bydbatt/master/admin/byd-batterybox.png",
+    "readme": "https://github.com/arteck/ioBroker.bydbatt/blob/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "hardware",
+    "compact": true,
+    "materialize": true,
+    "materializeTab": true,
+    "dependencies": [
+      {
+        "js-controller": ">=3.0.0"
+      }
+    ],
+    "installedFrom": "https://github.com/arteck/iobroker.bydbatt/tarball/master"
+  },
+  "native": {
+    "interval": 60
+  },
+  "objects": [],
+  "instanceObjects": []
+}
