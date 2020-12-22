@@ -12,8 +12,6 @@
  
 const utils = require('@iobroker/adapter-core');
 const axios = require('axios');
-var Formdata = require('form-data');
-
 
 let _batteryNum = 0;
 let _arrayNum = 0;
@@ -165,9 +163,10 @@ class bydbattControll extends utils.Adapter {
 
                     if (stateArray.rows[i].id) {
                         let id = stateArray.rows[i].id;
+                     
+                        this.log.debug("stateArray " + id );
 
                         id = id.replace("ArrayNum.1", "ArrayNum."+ arrNumNow).replace("BattNum.1", "BattNum." + battNumNow);  // tausche array auf aktuell
-
 
                         if (id.indexOf("lastInfoUpdate") > 0) {
                             this.setState(id, Date.now(), true);
@@ -178,6 +177,8 @@ class bydbattControll extends utils.Adapter {
                         for (; idx < contents.length;) {
                             let idCon = contents[idx];
 
+                            this.log.debug("contents " + idCon );
+                         
                             if (idCon.indexOf(" ") > 0) {
                                 contents.splice(idx, 1);
                                 continue;
