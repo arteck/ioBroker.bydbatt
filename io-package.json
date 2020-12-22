@@ -36,9 +36,9 @@
       "arteck <arteck@outlook.com>"
     ],
     "keywords": [
-      "ioBroker",
       "byd",
       "Battery",
+      "ioBroker",
       "home automation"
     ],
     "license": "MIT",
