@@ -81,13 +81,17 @@ class bydbattControll extends utils.Adapter {
 
     async getDaten(ip, arrNum, battNum) {
         const statusURL = `http://user:user@${ip}/asp/RunData.asp`;
+        const statusURLSet = `http://${ip}/asp/SetRunData.asp`;
+        
+        let res = await axios.get(statusURL);
+    
         const params = {
             ArrayNum: `${arrNum}`,
             SeriesBatteryNum: `${battNum}`
         }
 
-        let res = await axios.post(statusURL, params);
-   //     const res = await axios.get(statusURL);
+        res = await axios.post(statusURLSet, params);
+       
         const htmlData = res.data;
 
         this.log.debug('daten ' + htmlData);
