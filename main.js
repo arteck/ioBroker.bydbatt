@@ -90,7 +90,7 @@ class bydbattControll extends utils.Adapter {
     
         let res = await axios.post(statusURLSet, { data: `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`});
 
-        this.log.debug('daten ' + res.data);
+   //     this.log.debug('daten ' + res.data);
         return res.data;
     }
 
@@ -99,7 +99,7 @@ class bydbattControll extends utils.Adapter {
      
         let res = await axios.get(statusURLHome);
 
-        this.log.debug('datenHome   ' + res.data);
+  //      this.log.debug('datenHome   ' + res.data);
         return res.data;
     }
  
@@ -130,7 +130,7 @@ class bydbattControll extends utils.Adapter {
             htmlText2 = (htmlText2 || '').toString().replace(/\t|[\t]/g, ' ');
 
         const g1 = /<td(>|[^>]+>)((?:.(?!<\/td>))*.?)<\/td>/g;                       // suche alle td
-        const g2 = /[\w]+:|[\w]+(\[(?:\[??[^\[]*?\])):|value=-?\d*\.?\d*/g;   // suche alle bezeichnungnen und values
+        const g2 = /[a-zA-Z ]+:|[a-zA-Z]+(\[(?:\[??[^\[]*?\])):|value=-?\d*\.?\d*/g;   // suche alle bezeichnungnen und values
         const g3 = /\w*\d*-\w*\d*/g; // suche serialnummer
 
         try {
