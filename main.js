@@ -12,6 +12,8 @@
  
 const utils = require('@iobroker/adapter-core');
 const axios = require('axios');
+const { default: AxiosDigestAuth } = require('@mhoc/axios-digest-auth');
+
 
 let _batteryNum = 0;
 let _arrayNum = 0;
@@ -85,24 +87,30 @@ class bydbattControll extends utils.Adapter {
 
    async getDaten(ip, arrNum, battNum) {
         const statusURLSet = `http://${ip}/goform/SetRunData`;
-        
+             const statusURLSet = `http://${ip}/goform/SetRunData`;
+
+
+        const PASSWORD = "user";
+        const USERNAME = "user";
+
         const digestAuth = new AxiosDigestAuth({
-          password: user,
-          username: user,
+           password: PASSWORD,
+           username: USERNAME,
         });
-    
+
         const requestOpts = {
           headers: { Accept: "application/json" },
           method: "GET",
           url: statusURLSet,
         };
-    
-        const resp = await digestAuth.request(requestOpts);
-    
-        const res = await axios.post(statusURLSet, { data: `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`});
+
+        const res = await digestAuth.request(requestOpts);
+
+   //     const res = await axios.post(statusURLSet, { data: `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`});
 
    //     this.log.debug('daten ' + res.data);
         return res.data;
+
     }
 
     async getDatenHome(ip) {
