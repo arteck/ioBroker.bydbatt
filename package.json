@@ -17,8 +17,7 @@
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.4.0",
-     "axios-digest": "^0.2.0",
-     "axios-digest-auth": "^0.3.0"
+    "@mhoc/axios-digest-auth": "^0.3.0"
   },
   "devDependencies": {
     "@iobroker/testing": "^2.2.0",
