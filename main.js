@@ -137,9 +137,8 @@ class bydbattControll extends utils.Adapter {
         return res;
     }
 
-    async getDatenSet(ip, arrNum, battNum, head) {
+     async getDatenSet(ip, arrNum, battNum, head) {
         this.log.debug('getDatenSet!! GO');
-        this.log.debug('datenSet-- ' + JSON.stringify(head));
 
         const statusURLSet = `http://${ip}/goform/SetRunData`;
 
@@ -153,9 +152,12 @@ class bydbattControll extends utils.Adapter {
 
         const dat = `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`;
 
+        head.authorization = head.authorization.replace('/asp/RunData.asp','/goform/SetRunData');
+
+        this.log.debug('datenSet-- ' + JSON.stringify(head));
+
         const requestOpts = {
           headers: head,
-          uri: "/goform/SetRunData",
           method: "POST",
           url: statusURLSet,
           data: dat,
@@ -167,8 +169,6 @@ class bydbattControll extends utils.Adapter {
         return res;
     }
 
- 
- 
     async updateDeviceHome(htmlHome) {
         let htmlText2 = (htmlHome || '').toString().replace(/\r\n|[\r\n]/g, ' ');
             htmlText2 = (htmlText2 || '').toString().replace(/\t|[\t]/g, ' ');
