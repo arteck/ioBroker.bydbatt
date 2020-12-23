@@ -73,10 +73,10 @@ class bydbattControll extends utils.Adapter {
            const resHome  = await this.updateDeviceHome(htmlHome);
 
            for (var b = 1; b < _batteryNum+1; b++) {
-  //              const htmlDataSet = await this.getDatenSet(this.config.ip);
-  //              const htmlData    = await this.getDatenGet(this.config.ipp, a, b);
+                const htmlDataSet = await this.getDatenSet(this.config.ip);
+                const htmlData    = await this.getDatenGet(this.config.ip, a, b);
 
-  //              const resData  = await this.updateDevice(htmlData, a, b);
+                const resData  = await this.updateDevice(htmlData, a, b);
             }
         }
 
@@ -109,7 +109,7 @@ class bydbattControll extends utils.Adapter {
     }
 
    async getDatenGet(ip) {
-        const statusURL = `http://${ip}/asp/RunData.asp`;
+        const statusURLSet = `http://${ip}/asp/RunData.asp`;
 
         const PASSWORD = "user";
         const USERNAME = "user";
