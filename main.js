@@ -165,6 +165,8 @@ class bydbattControll extends utils.Adapter {
 
         let res = await digestAuth.request(requestOpts);
 
+//        let res = await axios.post(statusURLSet, { data: `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`, headers: head});
+
         this.log.debug('datenSet-- ' + res.data);
         return res;
     }
