@@ -70,6 +70,9 @@ class bydbattControll extends utils.Adapter {
 
         for (var a = 1; a < _arrayNum+1; a++) {
             for (var b = 1; b < _batteryNum+1; b++) {
+                
+                const htmlFirst = await this.getDaten(this.config.ip, a, b);
+             
                 const htmlHome = await this.getDatenHome(this.config.ip);
                 const resHome  = await this.updateDeviceHome(htmlHome);
              
@@ -83,6 +86,27 @@ class bydbattControll extends utils.Adapter {
             this.getInfos();
         }, interval);
         
+    }
+    async getDatenFirst(ip, arrNum, battNum) {
+        const statusURLSet = `http://${ip}/index.html`;
+        const PASSWORD = "user";
+        const USERNAME = "user";
+
+        const digestAuth = new AxiosDigestAuth({
+           password: PASSWORD,
+           username: USERNAME,
+        });
+
+        const requestOptsAnfr = {
+          headers: { Accept: "application/json" },
+          method: "GET",
+          url: statusURLSet,
+        };
+
+        let res = await digestAuth.request(requestOptsAnfr);
+
+    //    this.log.debug('daten ' + res.data);
+        return res.data;
     }
 
    async getDaten(ip, arrNum, battNum) {
