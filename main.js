@@ -69,16 +69,14 @@ class bydbattControll extends utils.Adapter {
         if (requestTimeout) clearTimeout(requestTimeout);
 
         for (var a = 1; a < _arrayNum+1; a++) {
-            for (var b = 1; b < _batteryNum+1; b++) {
-                
-                const htmlFirst = await this.getDaten(this.config.ip, a, b);
-             
-                const htmlHome = await this.getDatenHome(this.config.ip);
-                const resHome  = await this.updateDeviceHome(htmlHome);
-             
-                const htmlData = await this.getDaten(this.config.ip, a, b);
-                const resData  = await this.updateDevice(htmlData, a, b);
-                
+           const htmlHome = await this.getDatenHome(this.config.ip);
+           const resHome  = await this.updateDeviceHome(htmlHome);
+
+           for (var b = 1; b < _batteryNum+1; b++) {
+  //              const htmlDataSet = await this.getDatenSet(this.config.ip);
+  //              const htmlData    = await this.getDatenGet(this.config.ipp, a, b);
+
+  //              const resData  = await this.updateDevice(htmlData, a, b);
             }
         }
 
@@ -87,8 +85,9 @@ class bydbattControll extends utils.Adapter {
         }, interval);
         
     }
-    async getDatenFirst(ip, arrNum, battNum) {
-        const statusURLSet = `http://${ip}/index.html`;
+  
+   async getDatenHome(ip) {
+        const statusURLHome = `http://${ip}/index.html`;
         const PASSWORD = "user";
         const USERNAME = "user";
 
@@ -100,19 +99,17 @@ class bydbattControll extends utils.Adapter {
         const requestOptsAnfr = {
           headers: { Accept: "application/json" },
           method: "GET",
-          url: statusURLSet,
+          url: statusURLHome,
         };
 
         let res = await digestAuth.request(requestOptsAnfr);
 
-    //    this.log.debug('daten ' + res.data);
-        return res.data;
+//        this.log.debug('daten ' + JSON.stringify(res.headers));
+        return res;
     }
 
-   async getDaten(ip, arrNum, battNum) {
-        const statusURLSet = `http://${ip}/goform/SetRunData`;
-             const statusURLSet = `http://${ip}/goform/SetRunData`;
-
+   async getDatenGet(ip) {
+        const statusURL = `http://${ip}/asp/RunData.asp`;
 
         const PASSWORD = "user";
         const USERNAME = "user";
@@ -128,23 +125,41 @@ class bydbattControll extends utils.Adapter {
           url: statusURLSet,
         };
 
-        const res = await digestAuth.request(requestOpts);
+        let res = await digestAuth.request(requestOpts);
 
-   //     const res = await axios.post(statusURLSet, { data: `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`});
-
-   //     this.log.debug('daten ' + res.data);
-        return res.data;
-
-    }
-
-    async getDatenHome(ip) {
-        const statusURLHome = `http://user:user@${ip}/asp/Home.asp`;
-     
-        let res = await axios.get(statusURLHome);
-
-  //      this.log.debug('datenHome   ' + res.data);
+     //   this.log.debug('daten ' + res.data);
         return res.data;
     }
+ 
+    async getDatenSet(ip, arrNum, battNum) {
+        const statusURLSet = `http://${ip}/asp/SetRunData.asp`;
+
+       const statusURLSet = `http://${ip}/asp/SetRunData.asp`;
+
+        const PASSWORD = "user";
+        const USERNAME = "user";
+
+        const digestAuth = new AxiosDigestAuth({
+           password: PASSWORD,
+           username: USERNAME,
+        });
+
+        const dat = `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`;
+
+        const requestOpts = {
+          headers: { Accept: "application/json" },
+          method: "POST",
+          url: statusURLSet,
+          data: dat,
+        };
+
+        let res = await digestAuth.request(requestOpts);
+
+        return res.data;
+    }
+
+ 
+ 
  
     async updateDeviceHome(htmlHome) {
         let htmlText2 = (htmlHome || '').toString().replace(/\r\n|[\r\n]/g, ' ');
