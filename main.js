@@ -11,7 +11,6 @@
 'use strict';
  
 const utils = require('@iobroker/adapter-core');
-const axios = require('axios');
 const { default: AxiosDigestAuth } = require('@mhoc/axios-digest-auth');
 
 
@@ -151,8 +150,6 @@ class bydbattControll extends utils.Adapter {
         });
 
         const dat = `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`;
-
-        head.authorization = head.authorization.replace('/asp/RunData.asp','/goform/SetRunData');
 
         this.log.debug('datenSet-- ' + JSON.stringify(head));
 
