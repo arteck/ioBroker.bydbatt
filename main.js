@@ -19,7 +19,7 @@ let _arrayNum = 0;
 let requestTimeout = null;
 let interval = 0;
 
-const PASSWORD = this.config.password;
+let PASSWORD = "";
 const USERNAME = "user";
 
 class bydbattControll extends utils.Adapter {
@@ -690,7 +690,12 @@ class bydbattControll extends utils.Adapter {
             if (interval < 60000) {
                 interval = 60000;
             }
-
+            if (this.config.batterynum !== undefined ) {
+              PASSWORD = this.config.password;         
+            } else {
+                this.log.error(`initialization undefined password undefined`);
+                callback();
+            }
         } catch (error) {
             this.log.error('other problem');
 
