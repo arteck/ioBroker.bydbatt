@@ -137,7 +137,7 @@ class bydbattControll extends utils.Adapter {
 
         const dat = `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`;
 
-        head.Referer = 'http://192.168.2.53/asp/RunData.asp';
+        head.Referer = 'http://${ip}/asp/RunData.asp';
 
         const requestOpts = {
           headers: head,
