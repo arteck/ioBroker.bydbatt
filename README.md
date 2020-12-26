@@ -1,5 +1,5 @@
 ![Logo](admin/byd-batterybox.png)
-# ioBroker.bydbatt
+# ioBroker.bydbatt HV
 =================
 
 ![Number of Installations](http://iobroker.live/badges/bydbatt-installed.svg) ![Number of Installations](http://iobroker.live/badges/bydbatt-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.bydbatt.svg)](https://www.npmjs.com/package/iobroker.bydbatt)
