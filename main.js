@@ -19,7 +19,7 @@ let _arrayNum = 0;
 let requestTimeout = null;
 let interval = 0;
 
-let PASSWORD = "user";
+let PASSWORD = "";
 const USERNAME = "user";
 
 const digestAuth = new AxiosDigestAuth({
