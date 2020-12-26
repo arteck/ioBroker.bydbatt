@@ -28,6 +28,7 @@ const digestAuth = new AxiosDigestAuth({
 });
 
 
+
 class bydbattControll extends utils.Adapter {
 
     /**
@@ -80,12 +81,10 @@ class bydbattControll extends utils.Adapter {
            let htmlHome = await this.getDatenHome(this.config.ip);
            const resHome  = await this.updateDeviceHome(htmlHome.data);
 
-
            for (var b = 1; b < _batteryNum+1; b++) {
                 const htmlDataTmp = await this.getDatenGet(this.config.ip, htmlHome.headers);
                 const htmlDataSet = await this.getDatenSet(this.config.ip, a, b, htmlHome.headers);
                 const htmlData    = await this.getDatenGet(this.config.ip, htmlHome.headers);
-
 
                 const resData  = await this.updateDevice(htmlData.data, a, b);
             }
@@ -97,7 +96,7 @@ class bydbattControll extends utils.Adapter {
 
     }
 
-    async getDatenHome(ip) {
+     async getDatenHome(ip) {
         const statusURLHome = `http://${ip}/asp/Home.asp`;
 
         const requestOptsAnfr = {
@@ -111,6 +110,7 @@ class bydbattControll extends utils.Adapter {
 //        this.log.debug('datenHome' + JSON.stringify(res.data));
         return res;
     }
+
 
     async getDatenGet(ip, head) {
         this.log.debug('getDatenGet GO');
@@ -129,14 +129,15 @@ class bydbattControll extends utils.Adapter {
         return res;
     }
 
-     async getDatenSet(ip, arrNum, battNum, head) {
+
+  async getDatenSet(ip, arrNum, battNum, head) {
         this.log.debug('getDatenSet!! GO');
 
         const statusURLSet = `http://${ip}/goform/SetRunData`;
 
         const dat = `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`;
 
-        this.log.debug('datenSet-- ' + JSON.stringify(head));
+        head.Referer = 'http://192.168.2.53/asp/RunData.asp';
 
         const requestOpts = {
           headers: head,
@@ -145,13 +146,18 @@ class bydbattControll extends utils.Adapter {
           data: dat,
         };
 
-        let res = await digestAuth.request(requestOpts);
+         let res = "";
+         try {
+            res = await digestAuth.request(requestOpts);
 
-//        let res = await axios.post(statusURLSet, { data: `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`, headers: head});
+        } catch (err) {
+           this.log.debug('error request-- ' + JSON.stringify(err.headers));
+        }
 
-        this.log.debug('datenSet-- ' + res.data);
+//        this.log.debug('datenSet-- ' + res.data);
         return res;
     }
+
 
     async updateDeviceHome(htmlHome) {
         let htmlText2 = (htmlHome || '').toString().replace(/\r\n|[\r\n]/g, ' ');
