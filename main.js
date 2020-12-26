@@ -19,8 +19,14 @@ let _arrayNum = 0;
 let requestTimeout = null;
 let interval = 0;
 
-let PASSWORD = "";
+let PASSWORD = "user";
 const USERNAME = "user";
+
+const digestAuth = new AxiosDigestAuth({
+   password: PASSWORD,
+   username: USERNAME,
+});
+
 
 class bydbattControll extends utils.Adapter {
 
@@ -94,11 +100,6 @@ class bydbattControll extends utils.Adapter {
     async getDatenHome(ip) {
         const statusURLHome = `http://${ip}/asp/Home.asp`;
 
-        const digestAuth = new AxiosDigestAuth({
-           password: PASSWORD,
-           username: USERNAME,
-        });
-
         const requestOptsAnfr = {
           headers: { Accept: "application/json" },
           method: "GET",
@@ -116,11 +117,6 @@ class bydbattControll extends utils.Adapter {
 
         const statusURLGet = `http://${ip}/asp/RunData.asp`;
 
-        const digestAuth = new AxiosDigestAuth({
-           password: PASSWORD,
-           username: USERNAME,
-        });
-
         const requestOpts = {
           headers: head,
           method: "GET",
@@ -137,11 +133,6 @@ class bydbattControll extends utils.Adapter {
         this.log.debug('getDatenSet!! GO');
 
         const statusURLSet = `http://${ip}/goform/SetRunData`;
-
-        const digestAuth = new AxiosDigestAuth({
-           password: PASSWORD,
-           username: USERNAME,
-        });
 
         const dat = `ArrayNum=${arrNum}&SeriesBatteryNum=${battNum}`;
 
