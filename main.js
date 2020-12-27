@@ -22,10 +22,7 @@ let interval = 0;
 let PASSWORD = "";
 const USERNAME = "user";
 
-const digestAuth = new AxiosDigestAuth({
-   password: PASSWORD,
-   username: USERNAME,
-});
+let digestAuth = null;
 
 
 
@@ -687,8 +684,11 @@ class bydbattControll extends utils.Adapter {
             if (interval < 60000) {
                 interval = 60000;
             }
-            if (this.config.batterynum !== undefined ) {
-              PASSWORD = this.config.password;         
+            if (this.config.password !== undefined ) {
+              digestAuth = new AxiosDigestAuth({
+                 password: this.config.password,
+                 username: USERNAME,
+              });        
             } else {
                 this.log.error(`initialization undefined password undefined`);
                 callback();
