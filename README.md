@@ -15,6 +15,10 @@ byd Battery get information from the BYD Battery Box solar batteries
 
 <b>NodeJs >> 10.x.x </b>
 
+a password is required. you can set it in settings of BYD Manager
+
+
+
 ## Changelog
 
 ### 0.0.1 (2020-12-21)
