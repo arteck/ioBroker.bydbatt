@@ -21,7 +21,7 @@ a password is required. you can set it in settings of BYD Manager
 
 ## Changelog
 
-### 0.0.2 (2020-12-21)
+### 1.0.0 (2020-12-21)
 * (arteck) init
 
 
