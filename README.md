@@ -10,7 +10,7 @@
 
 
 
-byd Battery get information from the BYD Battery Box solar batteries
+byd Battery get information from the BYD Battery Box (solar batteries)
 ------------------------------------------------------------------------------
 
 <b>NodeJs >> 10.x.x </b>
