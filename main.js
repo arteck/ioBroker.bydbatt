@@ -248,7 +248,7 @@ class bydbattControll extends utils.Adapter {
                                         let idKurz = id.substring(0, id.length - 2);
                                         for (let i = 0; i < 16; i++) {
                                             let wert = false;
-                                            if (balanceArray[i].indexOf("true") > 0) {
+                                            if (balanceArray[i].indexOf("CHECKED") > 0) {
                                                 wert = true;
                                             }
                                             let idIdx = i +1;
