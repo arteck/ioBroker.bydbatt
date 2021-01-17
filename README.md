@@ -4,6 +4,7 @@
 
 ![Number of Installations](http://iobroker.live/badges/bydbatt-installed.svg) ![Number of Installations](http://iobroker.live/badges/bydbatt-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.bydbatt.svg)](https://www.npmjs.com/package/iobroker.bydbatt)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.bydbatt.svg)](https://www.npmjs.com/package/iobroker.bydbatt)
+
 [![NPM](https://nodei.co/npm/iobroker.bydbatt.png?downloads=true)](https://nodei.co/npm/iobroker.bydbatt/)
 
 
