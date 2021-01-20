@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "bydbatt",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "news": {
       "0.0.1": {
         "en": "initial",
@@ -65,5 +65,27 @@
     "interval": 60
   },
   "objects": [],
-  "instanceObjects": []
+  "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "If connected",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
 }
