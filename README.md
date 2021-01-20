@@ -19,6 +19,8 @@ a password is required. you can set it in settings of BYD Manager
 
 
 ## Changelog
+### 1.0.1  (2021-01-20)
+* (arteck) new js-controller upd
 
 ### 1.0.0 (2020-12-21)
 * (arteck) init
