@@ -60,8 +60,7 @@
       {
         "js-controller": ">=3.0.0"
       }
-    ],
-    "installedFrom": "https://github.com/arteck/iobroker.bydbatt/tarball/master"
+    ],   
   },
   "native": {
     "interval": 60
