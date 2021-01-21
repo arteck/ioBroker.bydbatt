@@ -1,6 +1,6 @@
 {
   "name": "iobroker.bydbatt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get information from the BYD Battery Box solar batteries",
   "author": {
     "name": "Arthur Rupp",
