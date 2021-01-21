@@ -51,7 +51,7 @@
     "loglevel": "info",
     "mode": "daemon",
     "type": "hardware",
-    "compact": false,
+    "compact": true,
     "materialize": true,
     "materializeTab": true,
     "connectionType": "local",
