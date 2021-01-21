@@ -54,6 +54,8 @@
     "compact": false,
     "materialize": true,
     "materializeTab": true,
+    "connectionType": "local",
+    "dataSource": "push",
     "dependencies": [
       {
         "js-controller": ">=3.0.0"
