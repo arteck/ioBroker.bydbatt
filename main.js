@@ -664,26 +664,24 @@ class bydbattControll extends utils.Adapter {
         try {
             if (this.config.ip === undefined ) {
                 this.log.error(`initialization undefined no ip`);
-                callback();
             }
 
             if (this.config.arraynum !== undefined ) {
                 _arrayNum = Number(this.config.arraynum);
             } else {
                 this.log.error(`initialization undefined arraynum undefined`);
-                callback();
             }
 
             if (this.config.batterynum !== undefined ) {
                 _batteryNum = Number(this.config.batterynum);
             } else {
                 this.log.error(`initialization undefined batterynum undefined`);
-                callback();
             }
             interval = parseInt(this.config.interval * 1000, 10);
             if (interval < 60000) {
                 interval = 60000;
             }
+         
             if (this.config.password !== undefined ) {
               digestAuth = new AxiosDigestAuth({
                  password: this.config.password,
@@ -691,7 +689,6 @@ class bydbattControll extends utils.Adapter {
               });        
             } else {
                 this.log.error(`initialization undefined password undefined`);
-                callback();
             }
         } catch (error) {
             this.log.error('other problem');
