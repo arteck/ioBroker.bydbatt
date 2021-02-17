@@ -18,7 +18,6 @@
 
     <script type="text/javascript">
         // This will be called by the admin adapter when the settings page loads
-        var devices = [];
         function load(settings, onChange) {
             // example: select elements with id=key and class=value and insert value
             if (!settings) return;
@@ -38,12 +37,10 @@
                     ;
                 }
             });
-            devices    = settings.devices    || [];
             onChange(false);
             // reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
             if (M) M.updateTextFields();
 
-            values2table('devices', devices, onChange);
         }
 
         // This will be called by the admin adapter when the user presses the save button
