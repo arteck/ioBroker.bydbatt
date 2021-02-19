@@ -170,7 +170,7 @@ class bydbattControll extends utils.Adapter {
         let wert = contents[0];
             wert = wert.replace("value=", "").replace(">", "");
 
-        this.setState('RunStatus', wert, true);
+        await this.setState('RunStatus', wert, true);
 
     }
     async updateDevice(htmlData, arrNum, battNum) {
@@ -224,7 +224,7 @@ class bydbattControll extends utils.Adapter {
                         id = id.replace("ArrayNum.1", "ArrayNum."+ arrNumNow).replace("BattNum.1", "BattNum." + battNumNow);  // tausche array auf aktuell
 
                         if (id.indexOf("lastInfoUpdate") > 0) {
-                            this.setState(id, Date.now(), true);
+                            await this.setState(id, Date.now(), true);
                         }
 
                         var idx = 0;
@@ -253,7 +253,7 @@ class bydbattControll extends utils.Adapter {
                                             }
                                             let idIdx = i +1;
 
-                                            this.setState(idKurz + '.' + idIdx, wert, true);
+                                            await this.setState(idKurz + '.' + idIdx, wert, true);
                                             this.log.debug(idKurz + '.' + idIdx, wert);
                                         }
                                         contents.splice(idx, 1);
@@ -265,7 +265,7 @@ class bydbattControll extends utils.Adapter {
                                         if (idCon == "SerialNumber") {
                                             wert = serialNumValue;   // serialnummer sonderlocke
                                         }
-                                        this.setState(id, wert, true);
+                                        await this.setState(id, wert, true);
                                         this.log.debug(id + ' ' + wert);
 
                                         wert = contents[idx + 1];
