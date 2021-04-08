@@ -686,7 +686,11 @@ class bydbattControll extends utils.Adapter {
               if (this.config.password && (!adapter.supportsFeature || !adapter.supportsFeature('ADAPTER_AUTO_DECRYPT_NATIVE'))) {
                 this.config.password = tools.decrypt((systemConfig && systemConfig.native && systemConfig.native.secret) || 'Zgfr56gFe87jJOM', this.config.password);
               }
-             
+             // eslint-disable-next-line no-control-regex
+              if (/[\x00-\x08\x0E-\x1F\x80-\xFF]/.test(this.config.password)) {
+                this.log.error('Password error: Please re-enter the password in Admin. Stopping');
+                return;
+              }
               digestAuth = new AxiosDigestAuth({
                  password: this.config.password,
                  username: USERNAME,
