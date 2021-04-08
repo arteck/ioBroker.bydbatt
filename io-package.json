@@ -66,10 +66,16 @@
       }
     ]
   },
+   "encryptedNative": [
+        "password"
+    ],
+    "protectedNative": [
+        "password"
+    ],
   "native": {
     "interval": 60,
     "ipaddress": "0.0.0.0",
-    "password": "password"
+    "password": ""
   },
   "objects": [],
   "instanceObjects": [
