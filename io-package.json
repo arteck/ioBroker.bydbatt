@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "bydbatt",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "news": {
+      "1.0.3": {
+        "en": "stable",
+        "de": "stable"
+      },
       "1.0.2": {
         "en": "ready",
         "de": "ready"
