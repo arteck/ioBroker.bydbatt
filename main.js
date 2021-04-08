@@ -683,6 +683,10 @@ class bydbattControll extends utils.Adapter {
             }
          
             if (this.config.password !== undefined ) {
+              if (this.config.password && (!adapter.supportsFeature || !adapter.supportsFeature('ADAPTER_AUTO_DECRYPT_NATIVE'))) {
+                this.config.password = tools.decrypt((systemConfig && systemConfig.native && systemConfig.native.secret) || 'Zgfr56gFe87jJOM', this.config.password);
+              }
+             
               digestAuth = new AxiosDigestAuth({
                  password: this.config.password,
                  username: USERNAME,
