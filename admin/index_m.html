@@ -21,6 +21,11 @@
         function load(settings, onChange) {
             // example: select elements with id=key and class=value and insert value
             if (!settings) return;
+            
+            if (settings.password && (typeof supportsFeature !== 'function' || !supportsFeature('ADAPTER_AUTO_DECRYPT_NATIVE'))) {
+                settings.password = decrypt(secret, settings.password);
+            }
+            
             $('.value').each(function () {
                 var $key = $(this);
                 var id = $key.attr('id');
@@ -37,9 +42,7 @@
                     ;
                 }
             });
-            if (settings.password && (typeof supportsFeature !== 'function' || !supportsFeature('ADAPTER_AUTO_DECRYPT_NATIVE'))) {
-                settings.password = decrypt(secret, settings.password);
-            }
+            
             onChange(false);
             // reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
             if (M) M.updateTextFields();
