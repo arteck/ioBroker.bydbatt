@@ -52,7 +52,7 @@
         // This will be called by the admin adapter when the user presses the save button
         function save(callback) {
             // example: select elements with class=value and build settings object
-            var obj = {};
+            let obj = {};
             $('.value').each(function () {
                 var $this = $(this);
                 if ($this.attr('type') === 'checkbox') {
