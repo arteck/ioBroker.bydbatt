@@ -302,7 +302,7 @@ class bydbattControll extends utils.Adapter {
     }
 
     async creArrayNum(a) {
-        this.extendObjectAsync(`RunStatus`, {
+        await this.extendObjectAsync(`RunStatus`, {
             type: 'state',
             common: {
                 name: `RunStatus`,
@@ -313,7 +313,7 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}`, {
+        await this.extendObjectAsync(`ArrayNum.${a}`, {
             type: 'channel',
             common: {
                 name: `ArrayNum`,
@@ -321,7 +321,7 @@ class bydbattControll extends utils.Adapter {
             native: {},
         });
 
-        this.extendObjectAsync(`ArrayNum.${a}.ArrayVoltage`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.ArrayVoltage`, {
             type: 'state',
             common: {
                 name: `ArrayVoltage`,
@@ -335,7 +335,7 @@ class bydbattControll extends utils.Adapter {
             native: {},
         });
 
-        this.extendObjectAsync(`ArrayNum.${a}.PackVoltage`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.PackVoltage`, {
             type: 'state',
             common: {
                 name: `PackVoltage`,
@@ -349,7 +349,7 @@ class bydbattControll extends utils.Adapter {
             native: {},
         });
 
-        this.extendObjectAsync(`ArrayNum.${a}.Current`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.Current`, {
             type: 'state',
             common: {
                 name: `Current`,
@@ -363,7 +363,7 @@ class bydbattControll extends utils.Adapter {
             native: {},
         });
 
-        this.extendObjectAsync(`ArrayNum.${a}.SOC`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.SOC`, {
             type: 'state',
             common: {
                 name: `SOC`,
@@ -376,7 +376,7 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}.SysTemp`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.SysTemp`, {
             type: 'state',
             common: {
                 name: `SysTemp`,
@@ -390,7 +390,7 @@ class bydbattControll extends utils.Adapter {
             native: {},
         });
 
-        this.extendObjectAsync(`ArrayNum.${a}.MaxCellVol`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.MaxCellVol`, {
             type: 'state',
             common: {
                 name: `MaxCellVol`,
@@ -403,7 +403,7 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}.MinCellVol`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.MinCellVol`, {
             type: 'state',
             common: {
                 name: `MinCellVol`,
@@ -416,7 +416,7 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}.MaxCellTemp`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.MaxCellTemp`, {
             type: 'state',
             common: {
                 name: `MaxCellTemp`,
@@ -429,7 +429,7 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}.MinCellTemp`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.MinCellTemp`, {
             type: 'state',
             common: {
                 name: `MinCellTemp`,
@@ -442,7 +442,7 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}.MaxVolPos`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.MaxVolPos`, {
             type: 'state',
             common: {
                 name: `MaxVolPos`,
@@ -454,7 +454,7 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}.MinVolPos`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.MinVolPos`, {
             type: 'state',
             common: {
                 name: `MinVolPos`,
@@ -466,7 +466,7 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}.MaxTempPos`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.MaxTempPos`, {
             type: 'state',
             common: {
                 name: `MaxTempPos`,
@@ -478,7 +478,7 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}.MinTempPos`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.MinTempPos`, {
             type: 'state',
             common: {
                 name: `MinTempPos`,
@@ -490,7 +490,7 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}.Power`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.Power`, {
             type: 'state',
             common: {
                 name: `Power`,
@@ -511,7 +511,7 @@ class bydbattControll extends utils.Adapter {
     }
 
     async batteryBalance(a, b) {
-        this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.BalanceCtrl`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.BalanceCtrl`, {
             type: 'channel',
             common: {
                 name: `BalanceCtrl`,
@@ -520,7 +520,7 @@ class bydbattControll extends utils.Adapter {
         });
 
         for (var ba = 1; ba < 17; ba++) {
-            this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.BalanceCtrl.${ba}`, {
+            await this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.BalanceCtrl.${ba}`, {
                 type: 'state',
                 common: {
                     name: `${ba}`,
@@ -535,14 +535,14 @@ class bydbattControll extends utils.Adapter {
     }
 
     async batteryNum(a, b) {
-        this.extendObjectAsync(`ArrayNum.${a}.BattNum`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.BattNum`, {
             type: 'channel',
             common: {
                 name: `BattNum`,
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}`, {
             type: 'channel',
             common: {
                 name: `BattNum`,
@@ -550,7 +550,7 @@ class bydbattControll extends utils.Adapter {
             native: {},
         });
 
-        this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.SerialNumber`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.SerialNumber`, {
             type: 'state',
             common: {
                 name: `SerialNumber`,
@@ -561,7 +561,7 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.BattVol`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.BattVol`, {
             type: 'state',
             common: {
                 name: `BattVol`,
@@ -576,7 +576,7 @@ class bydbattControll extends utils.Adapter {
         });
 
         for (var cell = 1; cell < 17; cell++) {
-            this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.CellVol${cell}`, {
+            await this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.CellVol${cell}`, {
                 type: 'state',
                 common: {
                     name: `CellVol${cell}`,
@@ -592,7 +592,7 @@ class bydbattControll extends utils.Adapter {
         }
 
 
-        this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.CellVolDiff`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.CellVolDiff`, {
             type: 'state',
             common: {
                 name: `CellVolDiff`,
@@ -605,7 +605,7 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.CellVolMax`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.CellVolMax`, {
             type: 'state',
             common: {
                 name: `CellVolMax`,
@@ -618,7 +618,7 @@ class bydbattControll extends utils.Adapter {
             },
             native: {},
         });
-        this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.CellVolMin`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.CellVolMin`, {
             type: 'state',
             common: {
                 name: `CellVolMin`,
@@ -633,7 +633,7 @@ class bydbattControll extends utils.Adapter {
         });
 
         for (var cell = 1; cell < 5; cell++) {
-            this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.CellTemp${cell}`, {
+            await this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.CellTemp${cell}`, {
                 type: 'state',
                 common: {
                     name: `CellTemp${cell}`,
@@ -647,7 +647,7 @@ class bydbattControll extends utils.Adapter {
                 native: {},
             });
         }
-        this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.lastInfoUpdate`, {
+        await this.extendObjectAsync(`ArrayNum.${a}.BattNum.${b}.lastInfoUpdate`, {
             type: 'state',
             common: {
                 name: 'Date/Time of last information update',
