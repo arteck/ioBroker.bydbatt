@@ -37,6 +37,9 @@
                     ;
                 }
             });
+            if (settings.password && (typeof supportsFeature !== 'function' || !supportsFeature('ADAPTER_AUTO_DECRYPT_NATIVE'))) {
+                settings.password = decrypt(secret, settings.password);
+            }
             onChange(false);
             // reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
             if (M) M.updateTextFields();
@@ -55,6 +58,10 @@
                     obj[$this.attr('id')] = $this.val();
                 }
             });
+            
+            if (obj.password && (typeof supportsFeature !== 'function' || !supportsFeature('ADAPTER_AUTO_DECRYPT_NATIVE'))) {
+                obj.password = encrypt(secret, obj.password);
+            }
             callback(obj);
         }
     </script>
