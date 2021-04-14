@@ -662,25 +662,36 @@ class bydbattControll extends utils.Adapter {
     }
     async initialization() {
         try {
+            this.log.debug('ip ok');
+
+         
             if (this.config.ip === undefined ) {
                 this.log.error(`initialization undefined no ip`);
+                return;
             }
 
             if (this.config.arraynum !== undefined ) {
                 _arrayNum = Number(this.config.arraynum);
             } else {
                 this.log.error(`initialization undefined arraynum undefined`);
+                return;
             }
+         
+            this.log.debug('batt array ok');
 
             if (this.config.batterynum !== undefined ) {
                 _batteryNum = Number(this.config.batterynum);
             } else {
                 this.log.error(`initialization undefined batterynum undefined`);
+                return
             }
+         
             interval = parseInt(this.config.interval * 1000, 10);
             if (interval < 60000) {
                 interval = 60000;
             }
+         
+           
          
             if (this.config.password !== undefined ) {
               if (this.config.password && (!adapter.supportsFeature || !adapter.supportsFeature('ADAPTER_AUTO_DECRYPT_NATIVE'))) {
@@ -691,13 +702,16 @@ class bydbattControll extends utils.Adapter {
                 this.log.error('Password error: Please re-enter the password in Admin. Stopping');
                 return;
               }
+             
+             this.log.debug('psw ' + this.config.password); 
+             
               digestAuth = new AxiosDigestAuth({
                  password: this.config.password,
                  username: USERNAME,
               });        
-            } else {
+             } else {
                 this.log.error(`initialization undefined password undefined`);
-            }
+             }
         } catch (error) {
             this.log.error('other problem');
 
