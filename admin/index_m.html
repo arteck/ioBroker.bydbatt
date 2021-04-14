@@ -57,10 +57,7 @@
                     obj[$this.attr('id')] = $this.val();
                 }
             });
-            
-            if (obj.password && (typeof supportsFeature !== 'function' || !supportsFeature('ADAPTER_AUTO_DECRYPT_NATIVE'))) {
-                obj.password = encrypt(secret, obj.password);
-            }
+           
             callback(obj);
         }
     </script>
