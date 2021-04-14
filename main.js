@@ -691,27 +691,22 @@ class bydbattControll extends utils.Adapter {
                 interval = 60000;
             }
          
-           
-         
-            if (this.config.password !== undefined ) {
-              if (this.config.password && (!adapter.supportsFeature || !adapter.supportsFeature('ADAPTER_AUTO_DECRYPT_NATIVE'))) {
-                this.config.password = tools.decrypt((systemConfig && systemConfig.native && systemConfig.native.secret) || 'Zgfr56gFe87jJOM', this.config.password);
-              }
-             // eslint-disable-next-line no-control-regex
-              if (/[\x00-\x08\x0E-\x1F\x80-\xFF]/.test(this.config.password)) {
-                this.log.error('Password error: Please re-enter the password in Admin. Stopping');
-                return;
-              }
-             
-             this.log.debug('psw ' + this.config.password); 
-             
-              digestAuth = new AxiosDigestAuth({
-                 password: this.config.password,
-                 username: USERNAME,
-              });        
-             } else {
-                this.log.error(`initialization undefined password undefined`);
-             }
+            if (this.config.password && (!adapter.supportsFeature || !adapter.supportsFeature('ADAPTER_AUTO_DECRYPT_NATIVE'))) {
+              this.config.password = tools.decrypt((systemConfig && systemConfig.native && systemConfig.native.secret) || 'Zgfr56gFe87jJOM', this.config.password);
+            }
+           // eslint-disable-next-line no-control-regex
+            if (/[\x00-\x08\x0E-\x1F\x80-\xFF]/.test(this.config.password)) {
+              this.log.error('Password error: Please re-enter the password in Admin. Stopping');
+              return;
+            }
+
+           this.log.debug('psw ' + this.config.password); 
+
+            digestAuth = new AxiosDigestAuth({
+               password: this.config.password,
+               username: USERNAME,
+            });        
+
         } catch (error) {
             this.log.error('other problem');
 
