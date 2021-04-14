@@ -685,7 +685,7 @@ class bydbattControll extends utils.Adapter {
             if (interval < 60000) {
                 interval = 60000;
             }
-         
+
             if (this.config.password && (!adapter.supportsFeature || !adapter.supportsFeature('ADAPTER_AUTO_DECRYPT_NATIVE'))) {
               this.config.password = tools.decrypt((systemConfig && systemConfig.native && systemConfig.native.secret) || 'Zgfr56gFe87jJOM', this.config.password);
             }
@@ -700,7 +700,7 @@ class bydbattControll extends utils.Adapter {
             digestAuth = new AxiosDigestAuth({
                password: this.config.password,
                username: USERNAME,
-            });        
+            });                 
 
         } catch (error) {
             this.log.error('other problem');
