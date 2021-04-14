@@ -21,11 +21,7 @@
         function load(settings, onChange) {
             // example: select elements with id=key and class=value and insert value
             if (!settings) return;
-            
-            if (settings.password && (typeof supportsFeature !== 'function' || !supportsFeature('ADAPTER_AUTO_DECRYPT_NATIVE'))) {
-                settings.password = decrypt(secret, settings.password);
-            }
-            
+                 
             $('.value').each(function () {
                 var $key = $(this);
                 var id = $key.attr('id');
