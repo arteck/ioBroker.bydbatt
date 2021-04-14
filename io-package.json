@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "bydbatt",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "news": {
+      "1.0.4": {
+        "en": "corr psw save method",
+        "de": "corr psw save method"
+      },           
       "1.0.3": {
         "en": "stable",
         "de": "stable"
