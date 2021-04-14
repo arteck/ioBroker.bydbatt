@@ -662,9 +662,6 @@ class bydbattControll extends utils.Adapter {
     }
     async initialization() {
         try {
-            this.log.debug('ip ok');
-
-         
             if (this.config.ip === undefined ) {
                 this.log.error(`initialization undefined no ip`);
                 return;
@@ -675,9 +672,7 @@ class bydbattControll extends utils.Adapter {
             } else {
                 this.log.error(`initialization undefined arraynum undefined`);
                 return;
-            }
-         
-            this.log.debug('batt array ok');
+            }         
 
             if (this.config.batterynum !== undefined ) {
                 _batteryNum = Number(this.config.batterynum);
