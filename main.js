@@ -20,7 +20,7 @@ let requestTimeout = null;
 let interval = 0;
 
 let PASSWORD = "";
-const USERNAME = "user";
+let USERNAME = "";
 
 let digestAuth = null;
 
@@ -686,7 +686,13 @@ class bydbattControll extends utils.Adapter {
                 interval = 60000;
             }
          
-            this.log.debug('psw ' + this.config.password); 
+            this.log.debug('psw ' + this.config.password);
+
+            USERNAME =  this.config.arrayuser;
+
+            if (USERNAME == null) {
+                USERNAME = 'user';
+            }
 
             digestAuth = new AxiosDigestAuth({
                password: this.config.password,

@@ -1,12 +1,24 @@
 {
   "common": {
     "name": "bydbatt",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "news": {
+      "1.0.5": {
+        "en": "add user selector and Batteryarray up to 9 ",
+        "de": "Benutzerauswahl und Batteriearray bis zu 9 hinzufügen",
+        "ru": "добавить пользовательский селектор и Batteryarray до 9",
+        "pt": "adicionar seletor de usuário e matriz de bateria até 9",
+        "nl": "voeg gebruikersselector en Batteryarray toe tot 9",
+        "fr": "ajouter un sélecteur d'utilisateur et Batteryarray jusqu'à 9",
+        "it": "aggiungere selettore utente e Batteryarray fino a 9",
+        "es": "agregue selector de usuario y Batteryarray hasta 9",
+        "pl": "dodaj selektor użytkownika i tablicę baterii do 9",
+        "zh-cn": "最多添加9个用户选择器和Batteryarray"
+      },
       "1.0.4": {
         "en": "corr psw save method",
         "de": "corr psw save method"
-      },           
+      },
       "1.0.3": {
         "en": "stable",
         "de": "stable"
@@ -72,14 +84,15 @@
       {
         "js-controller": ">=3.0.0"
       }
-    ]
+    ],
+    "installedFrom": "arteck/iobroker.bydbatt#3465864b6cf8e0445aad11ed543776af941df313"
   },
-   "encryptedNative": [
-        "password"
-    ],
-    "protectedNative": [
-        "password"
-    ],
+  "encryptedNative": [
+    "password"
+  ],
+  "protectedNative": [
+    "password"
+  ],
   "native": {
     "interval": 60,
     "ipaddress": "0.0.0.0",
@@ -87,26 +100,26 @@
   },
   "objects": [],
   "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "If connected",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
-    ]
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "If connected",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
 }

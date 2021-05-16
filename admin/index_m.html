@@ -85,6 +85,7 @@
                     <input type="text" class="value" id="ip" />
                     <label for="ip" class="translate">ipaddress</label>
                     <span class="translate">ipaddress</span>
+                
                 </div>
                 <div class="input-field suffix col s12 m6 l4">
                     <select id="arraynum" class="value">
@@ -116,12 +117,21 @@
             <div class="row">
                 <div class="input-field col">
                     <input class="value number" id="interval" size="5" maxlength="6" type="number"/>
-                <label class="translate" for="interval">interval</label>
+                    <label class="translate" for="interval">interval</label>
                 </div>
+                <div class="input-field suffix col s12 m6 l4">
+                    <select id="arrayuser" class="value">
+                        <option value="" disabled selected class="translate">User</option>
+                        <option value="user">user</option>
+                        <option value="installer">installer</option>
+                    </select>
+                    <label for="arrayuser" class="translate">user</label>
+                </div>                
                 <div class="input-field col">
                     <input class="value text" id="password" for="password" size="55" maxlength="55" type="password">
                     <label class="translate active">password</label>
                 </div>
+
             </div>
         
         </div>
