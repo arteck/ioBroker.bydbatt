@@ -263,9 +263,12 @@ class bydbattControll extends utils.Adapter {
                                         wert = wert.replace("value=", "");
 
                                         if (idCon == "SerialNumber") {
-                                            wert = serialNumValue;   // serialnummer sonderlocke
+                                            wert = serialNumValue.toString();   // serialnummer sonderlocke
+                                            await this.setState(id, wert, true);
+                                        } else {
+                                            await this.setState(id, Number(wert), true);
                                         }
-                                        await this.setState(id, Number(wert), true);
+                                        
                                         this.log.debug(id + ' ' + wert);
 
                                         wert = contents[idx + 1];
