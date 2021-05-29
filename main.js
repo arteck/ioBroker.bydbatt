@@ -265,7 +265,7 @@ class bydbattControll extends utils.Adapter {
                                         if (idCon == "SerialNumber") {
                                             wert = serialNumValue;   // serialnummer sonderlocke
                                         }
-                                        await this.setState(id, wert, true);
+                                        await this.setState(id, Number(wert), true);
                                         this.log.debug(id + ' ' + wert);
 
                                         wert = contents[idx + 1];
