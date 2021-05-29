@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "bydbatt",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "news": {
+        "1.0.6": {
+        "en": "js-controller",
+        "de": "js-controller"
+      },
       "1.0.5": {
         "en": "add user selector and Batteryarray up to 9 ",
         "de": "Benutzerauswahl und Batteriearray bis zu 9 hinzufügen",
