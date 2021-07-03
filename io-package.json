@@ -3,6 +3,10 @@
     "name": "bydbatt",
     "version": "1.0.7",
     "news": {
+     "1.0.7": {
+        "en": "cloud corr",
+        "de": "cloud korrekturen"
+      },
         "1.0.6": {
         "en": "js-controller",
         "de": "js-controller"
