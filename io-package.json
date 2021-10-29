@@ -82,7 +82,7 @@
     "extIcon": "https://raw.githubusercontent.com/arteck/ioBroker.bydbatt/master/admin/byd-batterybox.png",
     "readme": "https://github.com/arteck/ioBroker.bydbatt/blob/master/README.md",
     "loglevel": "info",
-    "type": "energy",
+    "type": "household",
     "compact": true,
     "materialize": true,
     "materializeTab": true,
