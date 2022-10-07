@@ -93,7 +93,6 @@
         "js-controller": ">=3.0.0"
       }
     ],
-    "installedFrom": "arteck/iobroker.bydbatt#3465864b6cf8e0445aad11ed543776af941df313"
   },
   "encryptedNative": [
     "password"
