@@ -36,7 +36,7 @@ a password is required. you can set it in settings of BYD Manager
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Arthur Rupp arteck@outlook.com
+Copyright (c) 2018-2022 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
