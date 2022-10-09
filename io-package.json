@@ -1,15 +1,19 @@
 {
   "common": {
     "name": "bydbatt",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "news": {
-     "1.0.7": {
-        "en": "cloud corr",
-        "de": "cloud korrekturen"
+        "1.0.8": {
+          "en": "io-package corr",
+          "de": "io-package korrekturen"
+      },
+        "1.0.7": {
+          "en": "cloud corr",
+          "de": "cloud korrekturen"
       },
         "1.0.6": {
-        "en": "js-controller",
-        "de": "js-controller"
+          "en": "js-controller",
+          "de": "js-controller"
       },
       "1.0.5": {
         "en": "add user selector and Batteryarray up to 9 ",

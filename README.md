@@ -16,9 +16,16 @@ byd Battery get information from the BYD Battery Box (solar batteries)
 
 a password is required. you can set it in settings of BYD Manager
 
-
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* io-package corr 
+
 ### 1.0.5  (2021-05-16)
 * (arteck) add user selector and Batteryarray up to 9 
 
