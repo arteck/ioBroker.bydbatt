@@ -1,6 +1,6 @@
 {
   "name": "iobroker.bydbatt",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "engines": {
     "node": ">=10.0.0"
   },

@@ -22,12 +22,11 @@ a password is required. you can set it in settings of BYD Manager
 -->
 
 ## Changelog
-
-### **WORK IN PROGRESS**
-* io-package corr 
+### 1.0.8 (2022-10-09)
+* io-package corr
 
 ### 1.0.5  (2021-05-16)
-* (arteck) add user selector and Batteryarray up to 9 
+* (arteck) add user selector and Batteryarray up to 9
 
 ### 1.0.4  (2021-04-14)
 * (arteck)corr psw save method"
@@ -37,8 +36,6 @@ a password is required. you can set it in settings of BYD Manager
 
 ### 1.0.0 (2020-12-21)
 * (arteck) init
-
-
 
 ## License
 The MIT License (MIT)
