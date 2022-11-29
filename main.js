@@ -71,25 +71,29 @@ class bydbattControll extends utils.Adapter {
 
      async getInfos() {
         this.log.debug(`get Information`);
+        try {
 
-        if (requestTimeout) clearTimeout(requestTimeout);
+          if (requestTimeout) clearTimeout(requestTimeout);
 
-        for (var a = 1; a < _arrayNum+1; a++) {
-           let htmlHome = await this.getDatenHome(this.config.ip);
-           const resHome  = await this.updateDeviceHome(htmlHome.data);
+          for (var a = 1; a < _arrayNum+1; a++) {
+             let htmlHome = await this.getDatenHome(this.config.ip);
+             const resHome  = await this.updateDeviceHome(htmlHome.data);
 
-           for (var b = 1; b < _batteryNum+1; b++) {
-                const htmlDataTmp = await this.getDatenGet(this.config.ip, htmlHome.headers);
-                const htmlDataSet = await this.getDatenSet(this.config.ip, a, b, htmlHome.headers);
-                const htmlData    = await this.getDatenGet(this.config.ip, htmlHome.headers);
+             for (var b = 1; b < _batteryNum+1; b++) {
+                  const htmlDataTmp = await this.getDatenGet(this.config.ip, htmlHome.headers);
+                  const htmlDataSet = await this.getDatenSet(this.config.ip, a, b, htmlHome.headers);
+                  const htmlData    = await this.getDatenGet(this.config.ip, htmlHome.headers);
 
-                const resData  = await this.updateDevice(htmlData.data, a, b);
-            }
+                  const resData  = await this.updateDevice(htmlData.data, a, b);
+              }
+          }
+
+          requestTimeout = setTimeout(async () => {
+              this.getInfos();
+          }, interval);
+        } catch (err) {
+           this.log.error(`no Device available error: ${err}`);
         }
-
-        requestTimeout = setTimeout(async () => {
-            this.getInfos();
-        }, interval);
 
     }
 
