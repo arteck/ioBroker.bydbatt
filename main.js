@@ -16,7 +16,7 @@ const { default: AxiosDigestAuth } = require('@mhoc/axios-digest-auth');
 
 let _batteryNum = 0;
 let _arrayNum = 0;
-let requestTimeout = null;
+let _requestInterval = null;
 let interval = 0;
 
 let PASSWORD = "";
@@ -58,7 +58,7 @@ class bydbattControll extends utils.Adapter {
      */
     onUnload(callback) {
         try {
-            if (requestTimeout) clearTimeout(requestTimeout);
+            if (_requestInterval) clearInterval(_requestInterval);
 
             this.log.info('cleaned everything up...');
             this.setState('info.connection', false, true);
@@ -72,9 +72,6 @@ class bydbattControll extends utils.Adapter {
      async getInfos() {
         this.log.debug(`get Information`);
         try {
-
-          if (requestTimeout) clearTimeout(requestTimeout);
-
           for (var a = 1; a < _arrayNum+1; a++) {
              let htmlHome = await this.getDatenHome(this.config.ip);
              const resHome  = await this.updateDeviceHome(htmlHome.data);
@@ -88,9 +85,11 @@ class bydbattControll extends utils.Adapter {
               }
           }
 
-          requestTimeout = setTimeout(async () => {
-              this.getInfos();
-          }, interval);
+          if (!_requestInterval) {
+               _requestInterval = setInterval(async () => {
+                 this.getInfos();
+               }, interval);
+          }
         } catch (err) {
            this.log.error(`no Device available error: ${err}`);
         }
