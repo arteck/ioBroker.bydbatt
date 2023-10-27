@@ -1,19 +1,32 @@
 {
   "common": {
     "name": "bydbatt",
-    "version": "1.0.8",
+    "version": "1.1.0",
     "news": {
-        "1.0.8": {
-          "en": "io-package corr",
-          "de": "io-package korrekturen"
+      "1.1.0": {
+        "en": "switch to intervall",
+        "de": "wechsel in intervall",
+        "ru": "перейти к интервалу",
+        "pt": "mudar para intervalo",
+        "nl": "wisselen naar intervall",
+        "fr": "commutation à intervalles",
+        "it": "passare all'intervallo",
+        "es": "cambiar a intervalo",
+        "pl": "przełączać się",
+        "uk": "вимикач на інтервал",
+        "zh-cn": "a. 转换到间隔"
       },
-        "1.0.7": {
-          "en": "cloud corr",
-          "de": "cloud korrekturen"
+      "1.0.8": {
+        "en": "io-package corr",
+        "de": "io-package korrekturen"
       },
-        "1.0.6": {
-          "en": "js-controller",
-          "de": "js-controller"
+      "1.0.7": {
+        "en": "cloud corr",
+        "de": "cloud korrekturen"
+      },
+      "1.0.6": {
+        "en": "js-controller",
+        "de": "js-controller"
       },
       "1.0.5": {
         "en": "add user selector and Batteryarray up to 9 ",
@@ -34,14 +47,6 @@
       "1.0.3": {
         "en": "stable",
         "de": "stable"
-      },
-      "1.0.2": {
-        "en": "ready",
-        "de": "ready"
-      },
-      "1.0.1": {
-        "en": "initial",
-        "de": "initial"
       }
     },
     "title": "bydbatt",
