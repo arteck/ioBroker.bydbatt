@@ -84,7 +84,6 @@
     ],
     "license": "MIT",
     "platform": "Javascript/Node.js",
-    "main": "main.js",
     "icon": "byd-batterybox.png",
     "enabled": true,
     "mode": "daemon",
