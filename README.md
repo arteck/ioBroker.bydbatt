@@ -40,6 +40,8 @@ a password is required. you can set it in settings of BYD Manager
 ### 1.0.0 (2020-12-21)
 * (arteck) init
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 The MIT License (MIT)
 
