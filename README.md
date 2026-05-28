@@ -22,6 +22,10 @@ a password is required. you can set it in settings of BYD Manager
 -->
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 1.1.0 (2023-10-27)
 * switch to intervall
 
