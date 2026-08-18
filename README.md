@@ -22,6 +22,9 @@ a password is required. you can set it in settings of BYD Manager
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 1.1.0 (2023-10-27)
 * switch to intervall
 
