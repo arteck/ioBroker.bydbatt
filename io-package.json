@@ -49,7 +49,6 @@
         "de": "stable"
       }
     },
-    "title": "bydbatt",
     "titleLang": {
       "en": "bydbatt",
       "de": "bydbatt",
@@ -79,18 +78,20 @@
     "keywords": [
       "byd",
       "Battery",
-      "ioBroker",
       "home automation"
     ],
-    "license": "MIT",
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
     "platform": "Javascript/Node.js",
-    "main": "main.js",
     "icon": "byd-batterybox.png",
     "enabled": true,
     "mode": "daemon",
     "extIcon": "https://raw.githubusercontent.com/arteck/ioBroker.bydbatt/master/admin/byd-batterybox.png",
     "readme": "https://github.com/arteck/ioBroker.bydbatt/blob/master/README.md",
     "loglevel": "info",
+    "tier": 2,
     "type": "household",
     "compact": true,
     "materializeTab": true,
